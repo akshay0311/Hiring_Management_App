@@ -1,0 +1,50 @@
+openapi: 3.0.0
+info: 
+  title : Hiring Management App
+  description : This is used for hiring candidates in any organization
+  version : 1.0.0
+
+servers:
+  - url : http://localhost:3000/api/v1
+    description : localhost version of our api
+  - url : https://localhost:3000/api/v1
+    description : This is the dummy one
+
+components:
+  securitySchemes:
+    basicAuth:            # arbitrary name for the security scheme
+      type: http
+      scheme: basic
+
+    bearerAuth:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer 
+
+paths:
+  /get_jobs:
+    get:
+      summmary: return an array of objects where each object contains attributes of a job
+      responses: 
+        '200' : #status code
+          description: return an array of object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string 
+                  title:
+                    type: string
+                  type:
+                    type: string
+                  location:
+                    type: string
+                  description:
+                    type: string
+                  requirement:
+                    type: string
+                  posted_on:
+                    type: string
+                  posted_by:
+                    type: string
